@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+
+<link rel="icon" href="img/Logo Krug.png">	
+<script src="jquery-2.2.4.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>	
+<link rel="stylesheet" href="slick-1.8.1/slick/slick.css">
+<link rel="stylesheet" href="drugi/style2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">		
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;469;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/fontawesome.min.css">
+<link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/brands.css">
+<link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/solid.css">
+<link rel="stylesheet" href="animate.css">	
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<title>Home</title>
+</head>
+
+<body>
+		
+	<div id="tickets" class="hidden">
+			<i onClick="returnMain()" class="fa fa-window-close"></i>
+			<div class="movie-container">
+				<label>Pick a movie:</label>
+					<select id="movies">
+					<option disabled selected value> -- select a movie -- </option>	
+					<option id="49" value="5">Eyes wide shut 5$</option>
+					<option id="50" value="5">Apocalypse now 5$</option>
+					<option id="51" value="5">Donnie Darko 5$</option>
+					<option id="52" value="5">Shining 5$</option>
+					<option id="53" value="5">Taxi driver 5$</option>
+				</select>
+			</div>
+	
+		<ul class="showcase">
+			<li>
+				<div class="seat"></div>
+				<small>N/A</small>
+			</li>
+		
+			<li>
+				<div class="seat selected"></div>
+				<small>Selected</small>
+			</li>
+		
+			<li>
+				<div class="seat occupied"></div>
+				<small>Occupied</small>
+			</li>
+		</ul>
+	
+		<div id="container" class="container">
+			<div class="screen">
+		
+			</div>
+		
+			<div class="row row1">
+				<div id="1" class="seat"></div>
+				<div id="2" class="seat"></div>
+				<div id="3" class="seat"></div>
+				<div id="4" class="seat"></div>
+				<div id="5" class="seat"></div>
+				<div id="6" class="seat"></div>
+				<div id="7" class="seat"></div>
+				<div id="8" class="seat"></div>
+			</div>
+
+			<div class="row row2">
+				<div id="9" class="seat"></div>
+				<div id="10" class="seat"></div>
+				<div id="11" class="seat"></div>
+				<div id="12" class="seat"></div>
+				<div id="13" class="seat"></div>
+				<div id="14" class="seat"></div>
+				<div id="15" class="seat"></div>
+				<div id="16" class="seat"></div>
+			</div>
+		
+			<div class="row row3">
+				<div id="17" class="seat"></div>
+				<div id="18" class="seat"></div>
+				<div id="19" class="seat"></div>
+				<div id="20" class="seat"></div>
+				<div id="21" class="seat"></div>
+				<div id="22" class="seat"></div>
+				<div id="23" class="seat"></div>
+				<div id="24" class="seat"></div>
+			</div>
+		
+		<div class="row row4">
+				<div id="25" class="seat"></div>
+				<div id="26" class="seat"></div>
+				<div id="27" class="seat"></div>
+				<div id="28" class="seat"></div>
+				<div id="29" class="seat"></div>
+				<div id="30" class="seat"></div>
+				<div id="31" class="seat"></div>
+				<div id="32" class="seat"></div>
+			</div>
+		
+			<div class="row row5">
+				<div id="33" class="seat"></div>
+				<div id="34" class="seat"></div>
+				<div id="35" class="seat"></div>
+				<div id="36" class="seat"></div>
+				<div id="37" class="seat"></div>
+				<div id="38" class="seat"></div>
+				<div id="39" class="seat"></div>
+				<div id="40" class="seat"></div>
+			</div>
+		
+			<div class="row row6">
+				<div id="41" class="seat"></div>
+				<div id="42" class="seat"></div>
+				<div id="43" class="seat"></div>
+				<div id="44" class="seat"></div>
+				<div id="45" class="seat"></div>
+				<div id="46" class="seat"></div>
+				<div id="47" class="seat"></div>
+				<div id="48" class="seat"></div>
+			</div>
+		</div>
+	
+			<p class="text">You have selected <span id="count">0</span> for a price of <span id="total">0</span> $</p>
+		
+			<button onClick="postTickets()" id="buyTickets">Buy</button>
+	</div>
+		
+		<div class="intro-container animated fadeIn" id="intro-container">
+			
+
+			<div id="side-left" class="hidden">
+				<img src="img/Baner Levi 2.png" alt="">
+			</div>
+			
+			<div id="main">
+				<div id="welcome" onClick="zoomOut()" onMouseOut="continueWelcomeFlicker()" onMouseOver="stopWelcomeFlicker()" class="welcome animated fadeIn">
+					<img id="logo" class="logo" src="img/Logo 2.png" alt="">
+				</div>
+
+				<ul id="nav" class="nav hidden">
+					<li><img src="img/Logo Krug.png" alt=""></li>
+					<li><a onClick="returnMain()" class="nav-link" href="#">Home</a></li>
+					<li><a onClick="buyTickets()" class="nav-link" href="#">Tickets</a></li>
+					<li><a class="nav-link" href="#">Contact</a></li>
+					<li>
+						<div id = "logsign">
+							<i onClick="clearCanvasForAMember()" class="fas fa-user"></i>
+							<i onClick="clearCanvasForLogin()" class="fas fa-user-edit"></i>
+						</div>
+						
+						<div id="logout" class="hidden">
+							<i onClick="logOut()" class="fas fa-sign-out-alt"></i>
+						</div>
+						
+					</li>
+					
+				</ul>
+			
+				<div class="carousel" id="carousel">
+					<div>
+						<img src="img/apocalypsenow - Copy.jpg" alt="#">
+						<div class="links">
+							<a onclick="buyTickets()" class="ticket" href="#">Want to see this movie? Get you tickets now!</a>
+						</div>
+					</div>
+					
+					<div>
+						<img src="img/eyeswideshut.jpg" alt="#">
+						<div class="links">
+							<a onclick="buyTickets()" class="ticket" href="#">Want to see this movie? Get you tickets now!</a>
+						</div>
+					</div>
+					
+					<div>
+						<img src="img/donniedarko.jpg" alt="#">
+						<div class="links">
+							<a onclick="buyTickets()" class="ticket" href="#">Want to see this movie? Get you tickets now!</a>
+						</div>
+					</div>
+						
+					<div>
+						<img src="img/shining.jpg" alt="#">
+						<div class="links">
+							<a onclick="buyTickets()" class="ticket" href="#">Want to see this movie? Get you tickets now!</a>
+						</div>
+					</div>
+					
+					<div>
+						<img src="img/taxidriver.jpg" alt="#">
+						<div class="links">
+							<a onclick="buyTickets()" class="ticket" href="#">Want to see this movie? Get you tickets now!</a>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="foot invisible" id="foot">
+					<p>Copyright 2020 &copy;</p>
+				</div>
+
+				<div id="admin-panel" class="admin-panel hidden">
+					<button onclick = "returnTickets()">get all tickets/refresh</button>
+					<button onclick = "clearAdminPanel()">clear admin panel</button>
+					<button onclick="returnComments()">get all comments</button>
+					<button onclick="returnActivities()">get all activites</button>
+					<div id="admin-panel-container">
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<div class="login hidden" id="login">
+				
+				<i onClick="returnMain()" class="fas fa-times"></i>
+				
+				<h2>Register With us</h2>
+				
+				<div class="login-control">
+					<label for="username">Username</label>
+					<input type="text" id="newUsername" placeholder="Enter username">
+					<small class="hidden" id="smallUsername">Error message</small>
+				</div>
+
+				<div class="login-control">
+					<label for="email">Email</label>
+					<input type="text" id="newEmail" placeholder="Enter email">
+					<small class="hidden" id="smallEmail">Error message</small>
+				</div>
+
+				<div class="login-control">
+					<label for="password">Password</label>
+					<input type="password" id="newPassword" placeholder="Enter password">
+					<small class="hidden" id="smallPass">Error message</small>
+				</div>
+
+				<div class="login-control">
+					<label for="password2">Confirm Password</label>
+					<input type="password" id="newPassword2" placeholder="Enter password again">
+					<small class="hidden" id="smallPass2">Error message</small>
+				</div>
+
+				<button onClick="newMember()" id="btnSubmit">Submit</button>
+			</div>
+			
+			<div id="member" class="member hidden">
+				
+				<h2>Already a member?</h2>
+				
+				<i onClick="returnMain()" class="fas fa-times iksic2"></i>
+				
+				<div class="login-control">
+					<label for="username">Username</label>
+					<input type="text" id="usernameMember" placeholder="Enter username">
+				</div>
+				
+				<div class="login-control">
+					<label for="password">Password</label>
+					<input type="password" id="passwordMember" placeholder="Enter password">
+					<small id="errormsg1" class="hidden">Error message</small>
+				</div>
+				
+				<input id="rememberMe" type="checkbox">Remember me
+				
+				<button id="btnSubmitMember" onClick="logInMember()">Submit</button>
+				
+			</div>
+			
+			<div id="comments" class="comments hidden">
+				
+				<div class="comment-form">
+					<textarea id="cmntText" cols="30" rows="5"></textarea>
+					<button onClick="postComment()" class="btnSubmitComment">Submit</button>
+				</div>
+				
+				<div id="comment_container">
+				</div>
+			</div>
+			
+			
+		</div>
+
+
+	<script src="script.js"></script>
+	<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+
+	
+	
+
+
+	
+
+</body>
+</html>
